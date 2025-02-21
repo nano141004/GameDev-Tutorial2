@@ -17,11 +17,10 @@ script = ExtResource("3")
 [node name="StonePlatform" parent="PlatformBlue" instance=ExtResource("1")]
 
 [node name="StonePlatform2" parent="PlatformBlue" instance=ExtResource("1")]
-position = Vector2(70, 0)
+position = Vector2(0, 120)
 
 [node name="BlueShip" parent="." instance=ExtResource("2")]
-position = Vector2(100, 421.901)
-scale = Vector2(4, 4)
+position = Vector2(72.7009, 421.901)
 lock_rotation = true
 
 [node name="ObjectiveArea" type="Area2D" parent="."]
