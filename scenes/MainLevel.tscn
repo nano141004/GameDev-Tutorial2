@@ -1,33 +1,55 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdoksexcakmop"]
+[gd_scene load_steps=8 format=3 uid="uid://cdoksexcakmop"]
 
 [ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://vy1exrkvu8wf" path="res://assets/bg3.jpeg" id="1_b7h6y"]
 [ext_resource type="PackedScene" uid="uid://datfp8kxjrjg" path="res://scenes/BlueShip.tscn" id="2"]
 [ext_resource type="Script" path="res://scenes/PlatformBlue.gd" id="3"]
 [ext_resource type="Script" path="res://scenes/ObjectiveArea.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="6_ybbal"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(138.75, 79)
 
 [node name="MainLevel" type="Node"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -3.0
+offset_top = 3.0
+offset_right = 1183.0
+offset_bottom = 818.0
+texture = ExtResource("1_b7h6y")
+expand_mode = 1
+
 [node name="PlatformBlue" type="Node2D" parent="."]
 position = Vector2(35, 565)
 script = ExtResource("3")
 
 [node name="StonePlatform" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(182, -447)
 
 [node name="StonePlatform2" parent="PlatformBlue" instance=ExtResource("1")]
-position = Vector2(0, 120)
+position = Vector2(80, -380)
+
+[node name="StonePlatform3" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(110, -530)
+
+[node name="StonePlatform4" parent="PlatformBlue" instance=ExtResource("1")]
+position = Vector2(5, -459)
 
 [node name="BlueShip" parent="." instance=ExtResource("2")]
-position = Vector2(72.7009, 421.901)
+position = Vector2(129, 109)
 lock_rotation = true
 
 [node name="ObjectiveArea" type="Area2D" parent="."]
 script = ExtResource("4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
-position = Vector2(70.625, 40)
+position = Vector2(1083, 609)
 shape = SubResource("1")
+
+[node name="Fasilkom" type="Sprite2D" parent="."]
+position = Vector2(1083, 603.75)
+scale = Vector2(0.506667, 0.506452)
+texture = ExtResource("6_ybbal")
 
 [connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
